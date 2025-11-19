@@ -40,6 +40,8 @@ dependencies {
     implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
 
     //Test compilation
+    testImplementation "io.cucumber:cucumber-java:7.18.1"
+    testImplementation "io.cucumber:cucumber-junit:7.18.1"
     testImplementation "junit:junit:$rootProject.ext.junit"
     testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrest"
     implementation 'org.slf4j:slf4j-simple:2.0.5'
@@ -56,6 +58,6 @@ dependencies {
 }
 
 tasks.named('test') {
-    // System configs
-
+    useJUnit()
+    systemProperty "webdriver.driver", "chrome"
 }

@@ -1,5 +1,6 @@
 package co.com.buggy.test.tasks;
 
+import co.com.buggy.test.userinterfaces.RegistrationForm;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -15,25 +16,11 @@ public class ProvideRegistrationCredentials implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
-                // Username
-                Enter.theValue("jimmy1234").into(By.id("username")),
-                Pause.forMs(500),
-
-                // First Name
-                Enter.theValue("Jimmy").into(By.id("firstName")),
-                Pause.forMs(500),
-
-                // Last Name
-                Enter.theValue("Gomez").into(By.id("lastName")),
-                Pause.forMs(500),
-
-                // Password
-                Enter.theValue("Password123@").into(By.id("password")),
-                Pause.forMs(500),
-
-                // Confirm Password
-                Enter.theValue("Password123@").into(By.id("confirmPassword")),
-                Pause.forMs(500)
+                Enter.theValue("jimmy.gomez123").into(RegistrationForm.USERNAME),
+                Enter.theValue("Jimmy").into(RegistrationForm.FIRST_NAME),
+                Enter.theValue("Gomez").into(RegistrationForm.LAST_NAME),
+                Enter.theValue("Password123@").into(RegistrationForm.PASSWORD),
+                Enter.theValue("Password123@").into(RegistrationForm.CONFIRM_PASSWORD)
         );
     }
 }
